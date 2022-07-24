@@ -23,27 +23,9 @@ def infinite(pressed):
 
 
 def CyberSeals():
-    np[0] = (255, 255, 0)
-    np[1] = (255, 255, 0)
-    np[2] = (255, 255, 0)
-    np[3] = (0, 0, 0)
-    np[4] = (0, 0, 0)
-    np.write()
-    loop('3')
-    np[0] = (255, 255, 0)
-    np[1] = (255, 255, 0)
-    np[2] = (0, 0, 0)
-    np[3] = (0, 0, 0)
-    np[4] = (0, 0, 0)
-    np.write()
-    loop('2')
-    np[0] = (255, 255, 0)
-    np[1] = (0, 0, 0)
-    np[2] = (0, 0, 0)
-    np[3] = (0, 0, 0)
-    np[4] = (0, 0, 0)
-    np.write()
-    loop('1')
+    loop(3)
+    loop(2)
+    loop(1)
     display.drawFill(0x000000)
     display.drawPng(0, 0, '/apps/python/cyberseals/logo01.png')
     display.flush()
@@ -58,9 +40,17 @@ def CyberSeals():
 
 
 def loop(x):
+    np[0] = (0, 0, 0)
+    np[1] = (0, 0, 0)
+    np[2] = (0, 0, 0)
+    np[3] = (0, 0, 0)
+    np[4] = (0, 0, 0)
+    for y in range(0, x, 1):
+        np[y] = (255, 255, 0)
     display.drawFill(0x000000)
-    display.drawText(150, 100, str(x), 0xFFF000)
+    display.drawPng(0, 0, '/apps/python/cyberseals/' + str(x) + '.png')
     display.flush()
+    np.write()
     time.sleep(1)
 
 
