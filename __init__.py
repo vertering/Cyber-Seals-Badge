@@ -11,11 +11,6 @@ def reboot(pressed):
         mch22.exit_python()
 
 
-def single(pressed):
-    if pressed:
-        CyberSeals()
-
-
 def infinite(pressed):
     if pressed:
         while True:
@@ -55,15 +50,10 @@ def loop(x):
 
 
 buttons.attach(buttons.BTN_A, infinite)
-buttons.attach(buttons.BTN_B, single)
-buttons.attach(buttons.BTN_HOME, reboot)
+buttons.attach(buttons.BTN_B, reboot)
 display.drawFill(0x000000)
 display.flush()
-# Pin 19 controls the power supply to SD card and neopixels
 powerPin = Pin(19, Pin.OUT)
-# Pin 5 is the LED's data line
 dataPin = Pin(5, Pin.OUT)
-# create a neopixel object for 5 pixels
 np = NeoPixel(dataPin, 5)
-# turn on power to the LEDs
 powerPin.on()
