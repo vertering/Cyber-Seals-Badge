@@ -22,6 +22,7 @@ def CyberSeals():
     loop(2)
     loop(1)
     display.drawFill(0x000000)
+    # Needs to be changed to match hatchery project name. Spaces are underscores.
     display.drawPng(0, 0, '/apps/python/cyberseals/logo01.png')
     display.flush()
     # set some colors for the pixels (RGB)
@@ -43,6 +44,7 @@ def loop(x):
     for y in range(0, x, 1):
         np[y] = (255, 255, 0)
     display.drawFill(0x000000)
+    # Needs to be changed to match hatchery project name. Spaces are underscores.
     display.drawPng(0, 0, '/apps/python/cyberseals/' + str(x) + '.png')
     display.flush()
     np.write()
